@@ -51,3 +51,6 @@ print(0.1) # 이렇게 쓰면 가장 간결한 실수값으로 표시하므로 0
 print(float(10)) # float형으로 바꾼다.
 print(int(3.14)) # 소수점 버림
 print(int(3.84)) # 소수점 버림
+print(int(3.84)) # 소수점 버림
+print(float("12.14")) # 문자열을 실수형으로
+print(str(10))
