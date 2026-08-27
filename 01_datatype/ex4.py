@@ -60,7 +60,7 @@ print(f"{pi:.3f}")
 print(f"{pi:.0f}")
 
 num = 123456789
-print(f"{num:.,}") # 1000 단위 ',' 찍기
+print(f"{num:,}") # 1000 단위 ',' 찍기
 print(f"{num:15d}") # 15칸 확보 후 우측정렬
 print(f"{num:<15d}") # 15칸 확보 후 좌측정렬
 
