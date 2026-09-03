@@ -10,7 +10,7 @@ b = 3
 
 print(a + b)
 print(a - b)
-print(a / b)
+print(a / b)                             # 2.0으로 나온다. 기본적으로 실수 연산임.
 print(a % b)                             # a를 b로 나눈 나머지
 print(a // b)                            # a를 b로 나눈 몫
 print(a ** b)                            # a의 b제곱
