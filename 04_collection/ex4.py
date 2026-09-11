@@ -98,7 +98,7 @@ days = ("일","월","화","수","목","금","토")
 hours = (2, 3, 1, 4, 5, 2, 6)
 
 # 1️⃣ 월 ~ 금까지 총 학습시간 출력하기
-print(f"{sum(hours[1:6])}시간")                                                    # ✅ 15시간
+print(f"{sum(hours[1:6])}시간")                                               # ✅ 15시간
 
 
 # 2️⃣ 가장 많이 공부한 시간 출력하기
@@ -106,15 +106,16 @@ print(f"{max(hours)}시간")                                                    
 
 
 # 3️⃣ 가장 많이 공부한 요일 출력하기
-print(f"{days[hours.index(max(hours))]}요일")                                                    # ✅ 토요일
+print(f"{days[hours.index(max(hours))]}요일")                                 # ✅ 토요일
 _, day = max(zip(hours, days))
 print(f"{day}요일")
 
 # 4️⃣ 가장 높은 점수와 가장 낮은 점수 출력하기
 scores = (90, 85, 78, 92, 88, 76)
 
-
-print(f"max 점수: {max(scores)}, min 점수: {min(scores)}")                                                    # ✅ max 점수: 92점, min 점수: 76점
+sort_list = sorted(scores)
+print(f"max 점수: {sort_list[-1]}, min 점수: {sort_list[0]}")                   # ✅ max 점수: 92점, min 점수: 76점
+print(f"max 점수: {max(scores)}, min 점수: {min(scores)}")                      # ✅ max 점수: 92점, min 점수: 76점
 
 
 # 5️⃣ 과일가게 총 재고 금액 구하기
@@ -124,12 +125,19 @@ stocks = (
     ("체리", 5000, 2),
 )
 
-# 품목, 가격, 수량 튜플 만들기
-
-items = tuple(stocks[0][i] for i in range(3))                                                    # ✅ ('사과', '바나나', '체리')
-price = tuple(stocks[0][i] for i in range(3))                                                    # ✅ (1000, 2000, 5000)
-count = tuple(stocks[0][i] for i in range(3))                                                    # ✅ (5, 3, 2)
-
 # 총 재고 금액 출력
 
-                                                    # ✅ 총액: 21,000원
+total = sum(price * num for _, price, num in stocks)                          # ✅ 총액: 21,000원
+print(total)
+# Generator 표현식으로 표현함.
+
+stocks = (
+    ("사과", "바나나", "체리"),
+    (1000, 2000, 5000),
+    (5, 3, 2),
+)
+
+# 총 재고 금액 출력 v2
+
+total = sum(price * num for _, price, num in zip(*stocks))
+print(total)
