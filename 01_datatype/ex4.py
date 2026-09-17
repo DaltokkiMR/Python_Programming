@@ -57,7 +57,13 @@ print(f"f-string에서 중괄호 자체를 출력하려면 {{ 또는 }} 사용�
 
 pi = 3.141592
 print(f"{pi:.3f}")
-print(f"{pi:.0f}")
+print(f"{pi:.0f}") # 소수점 생략
+
+num = 3.56
+print(f"{pi:.0f}") # 소수점 생략
+
+num = 12345.6789
+print(f"{num:,.2f}") # 1000 단위 ',' 찍기 + 소수점 둘째자리까지
 
 num = 123456789
 print(f"{num:,}") # 1000 단위 ',' 찍기
