@@ -82,6 +82,7 @@ words = ["apple", "banana", "apple", "cherry", "banana", "apple"]
 
 # 1) Dictionary Comprehension
 result = {x: words.count(x) for x in words}
+result = {x: words.count(x) for x in set(words)} # words의 중복을 집합으로 없애줌. ex7.py의 집합(set)을 보고 오자.
 print(result)
 
 # 2) for문
