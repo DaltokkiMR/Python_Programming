@@ -10,7 +10,7 @@
 # ===========================================================
 
 from mypackage import mymath
-# from mypackage.mymath import PI, add
+# from mypackage.mymath import PI, add # PI, add를 바로 import
 
 print(mymath.PI)
 print(mymath.add(3, 4))
@@ -24,9 +24,26 @@ import mypackage as m
 print(m.VERSION)
 print(m.add(4, 5))
 
+print("\n\n")
+
+
 url = "https://httpbin.org/get"
 
 # re-export하지 않은 경우 세부 모듈 경로를 알아야 함
-from numpy
+from requests import api
+response = api.get(url)
+# request의 api의 get을 쓴다고 알려줘야 함
+
+print(response.status_code)
+
+from numpy import _core
+print(_core.arange(5))
 
 # re-export를 한 경우에는 세부 모듈 경로를 몰라도 됨
+import requests
+
+response = requests.get(url)
+print(response.status_code)
+
+import numpy as np
+print(np.arange(5))
