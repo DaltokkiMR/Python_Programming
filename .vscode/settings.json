@@ -3,5 +3,6 @@
         "editor.defaultFormatter": "ms-python.python",
         "editor.formatOnSave": true
     },
-    "code-runner.saveFileBeforeRun": true
+    "code-runner.saveFileBeforeRun": true,
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }
