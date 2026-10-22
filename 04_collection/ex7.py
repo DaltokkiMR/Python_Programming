@@ -67,13 +67,13 @@ print(sum(s))
 print(max(s))
 print(min(s))
 print(sorted(s)) # 집합을 오름차순으로 정렬한 리스트 형태로 반환
-print(sorted(s), reverse=True) # 집합을 내림차순으로 정렬한 리스트 형태로 반환
+print(sorted(s, reverse=True)) # 집합을 내림차순으로 정렬한 리스트 형태로 반환
 
 print("\n\n")
 
 # 집합 합치기
 s2 = {40, 50}
-print(s + s2) # 집합끼리 더하는 것은 불가능함!
+# print(s + s2) # 집합끼리 더하는 것은 불가능함!
 print(s.union(s2)) # s와 s2의 합집합을 만듦, 원본은 변경되지 않음(새로운 집합을 만들어 반환함)
 # print(s.update(s2)) # s에 s2를 추가함, 원본 변경됨
 
