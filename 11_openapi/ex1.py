@@ -53,6 +53,7 @@ def get_cat_image():
     try:
         url = "https://api.thecatapi.com/v1/images/search"
         response = requests.get(url, timeout=10)
+        
         if response.status_code != 200:
             print(f"요청 실패: status code: {response.status_code}")
 
