@@ -3,11 +3,16 @@ from datetime import datetime # 시간 변환용
 import streamlit as st
 from streamlit_calendar import calendar
 
+import pandas as pd
+
 # 커스텀 모듈
 import appcalendar as ac
 from bap_api import get_bap
 from bap_db import init_bap_db, load_all_baps, save_bap
 from pref_db import init_pref_db, load_all_prefs, save_pref
+
+# 구현과제
+from api import get_rest_api_data
 
 
 
@@ -88,7 +93,26 @@ state = calendar(
     key="bap_calendar"
 )
 
-# 4. 사용자가 클릭한 급식을 감지하고, 해당 급식의 상세정보를 보여주고 점수 매기기
+
+# 추가 구현과제. streamlit dataframe으로 보여주기
+processed_data = [[data['id'], data['title'], data['author']['name'], data['tags'][0], data['stats']['likes']] for data in get_rest_api_data()]
+id = [book[0] for book in processed_data]
+title = [book[1] for book in processed_data]
+author = [book[2] for book in processed_data]
+tag = [book[3] for book in processed_data]
+likes = [book[4] for book in processed_data]
+
+df = pd.DataFrame({
+    "ID": id,
+    "TITLE": title,
+    "AUTHOR": author,
+    "TAG": tag,
+    "LIKES": likes,
+})
+
+st.dataframe(df, hide_index=True)
+
+# 2. 사용자가 클릭한 급식을 감지하고, 해당 급식의 상세정보를 보여주고 점수 매기기
 if state.get("callback") == "eventClick": # 가장 최근 콜백이 이벤트 클릭(캘린더에서 이벤트 선택)인지 확인
     info = state["eventClick"]["event"]["extendedProps"] # 캘린더 이벤트 속 extendedProps를 가져와서 info에 넣기
     meal_key = (info["mlsv_ymd"], info["meal_nm"])
